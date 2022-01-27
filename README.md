@@ -7,6 +7,8 @@ A video player component for Vue3 based on video.js
 
 ## Example
 
+[Demo Page](https://alisalicn.github.io/vue3-video-player/)
+
 ```vue
 <template>
   <div class="video-player">
