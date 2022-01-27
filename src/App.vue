@@ -2,7 +2,6 @@
   <div class="video-player">
     <video-player
       :options="playerOptions"
-      :is-audio="type === 2"
       :currentTime="currentTime"
       @pause="onPause"
       @play="onPlay"
