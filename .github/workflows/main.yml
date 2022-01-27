@@ -28,7 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: install and build
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Deploy
