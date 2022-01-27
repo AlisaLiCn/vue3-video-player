@@ -56,8 +56,6 @@ const onPlay = (video: any) => {}
 const onEnded = (video: any) => {}
 
 const onPlaying = (video: any) => {}
-
-// 1
 </script>
 
 <style lang="scss" scoped>
