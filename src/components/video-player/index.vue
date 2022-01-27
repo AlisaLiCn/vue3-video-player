@@ -1,6 +1,6 @@
 <template>
   <div class="video-player-wrap" v-if="reseted">
-    <video ref="videoPlayer" class="video-js vjs-course" :class="{ 'is-audio': isAudio }"></video>
+    <video ref="videoPlayer" class="video-js vjs-custom"></video>
   </div>
 </template>
 
@@ -8,19 +8,28 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.min.css'
 
-interface Data {
-  [key: string]: any
-}
-
 const DEFAULT_EVENTS = [
+  'abort',
   'canplay',
   'canplaythrough',
+  'durationchange',
+  'emptied',
   'ended',
   'error',
   'loadeddata',
+  'loadedmetadata',
+  'loadstart',
   'pause',
   'play',
   'playing',
+  'ratechange',
+  'resize',
+  'seeked',
+  'seeking',
+  'stalled',
+  'suspend',
+  'timeupdate',
+  'volumechange',
   'waiting'
 ]
 </script>
@@ -29,10 +38,6 @@ const DEFAULT_EVENTS = [
 const props = defineProps({
   options: {
     type: Object
-  },
-  isAudio: {
-    type: Boolean,
-    default: false
   },
   currentTime: {
     type: Number,
@@ -68,7 +73,7 @@ function initVideo() {
     }
 
     const events = DEFAULT_EVENTS
-    const onEvents: Data = {}
+    const onEvents: { [key: string]: any } = {}
     // 监听事件
     for (let i = 0; i < events.length; i++) {
       if (typeof events[i] === 'string' && !onEvents[events[i]]) {
@@ -82,7 +87,7 @@ function initVideo() {
   })
 }
 
-const emitPlayerState = event => {
+const emitPlayerState = (event: string) => {
   if (event) {
     emits(event, player.value)
   }
@@ -111,13 +116,10 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
 }
-.vjs-course {
+.vjs-custom {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  &.is-audio {
-    background-color: #333;
-  }
 
   &.vjs-paused {
     .vjs-big-play-button {

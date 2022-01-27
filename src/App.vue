@@ -3,7 +3,7 @@
     <video-player
       :options="playerOptions"
       :is-audio="type === 2"
-      :currentTime="props.currentTime"
+      :currentTime="currentTime"
       @pause="onPause"
       @play="onPlay"
       @playing="onPlaying"
@@ -15,27 +15,14 @@
 <script lang="ts" setup>
 import VideoPlayer from '@/components/video-player/index.vue'
 
-const props = defineProps({
-  type: {
-    type: Number
-  },
-  url: {
-    type: String
-  },
-  currentTime: {
-    type: Number,
-    default: 0
-  }
-})
-
-const emits = defineEmits(['pause', 'play', 'ended'])
+const currentTime = ref(20)
 
 const playerOptions = reactive({
   autoplay: 'play',
   controls: true,
   language: 'zh',
   inactivityTimeout: 7 * 24 * 60 * 60 * 1000,
-  playbackRates: [0.5, 1.0, 1.5, 2.0],
+  playbackRates: [0.5, 0.75, 1.0, 1.25, 1.5, 2.0],
   poster: '',
   sources: [
     {
@@ -63,28 +50,11 @@ const playerOptions = reactive({
   }
 })
 
-watch(
-  () => props.url,
-  newVal => {
-    playerOptions.sources[0].src = newVal
-  }
-)
+const onPause = (video: any) => {}
 
-const isPaused = ref(true)
-const onPause = (video: any) => {
-  isPaused.value = true
-  emits('pause')
-}
+const onPlay = (video: any) => {}
 
-const onPlay = (video: any) => {
-  isPaused.value = false
-  emits('play')
-}
-
-const onEnded = (video: any) => {
-  isPaused.value = true
-  emits('ended')
-}
+const onEnded = (video: any) => {}
 
 const onPlaying = (video: any) => {}
 </script>
