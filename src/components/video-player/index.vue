@@ -148,9 +148,6 @@ onBeforeUnmount(() => {
         background: rgb(220, 223, 230, 0.8);
       }
     }
-    .vjs-play-progress {
-      background: var(--el-color-primary);
-    }
   }
 
   /* time */
