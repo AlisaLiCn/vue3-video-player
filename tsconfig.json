@@ -17,5 +17,5 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true
   },
-  "include": ["vite.config.*", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "auto-imports.d.ts"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "auto-imports.d.ts"]
 }
