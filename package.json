@@ -28,7 +28,8 @@
   "homepage": "https://github.com/AlisaLiCn/vue3-video-player#readme",
   "dependencies": {
     "video.js": "^7.17.0",
-    "vue": "^3.2.27"
+    "vue": "^3.2.27",
+    "xgplayer": "^2.31.4"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
@@ -53,6 +54,7 @@
     "unplugin-auto-import": "^0.5.11",
     "vite": "^2.7.13",
     "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-raw": "^1.0.2",
     "vue-tsc": "^0.29.8"
   }
 }
